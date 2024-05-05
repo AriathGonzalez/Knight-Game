@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://bisee3br2u7y3"]
+
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_8rgm8"]
+[ext_resource type="Texture2D" uid="uid://cunwoxkruesxy" path="res://assets/backgrounds/Knight Main Menu.png" id="2_7ed8o"]
+[ext_resource type="FontFile" uid="uid://dvnfk5ocb6x1c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_cr687"]
+
+[node name="Options Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8rgm8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7ed8o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 280.0
+offset_right = 703.0
+offset_bottom = 384.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_cr687")
+theme_override_font_sizes/font_size = 24
+text = "Volume"
+
+[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_cr687")
+theme_override_font_sizes/font_size = 24
+text = "Controls"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_cr687")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_quit_pressed"]
