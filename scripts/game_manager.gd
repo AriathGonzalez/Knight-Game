@@ -1,5 +1,7 @@
 extends Node
 
+var players = {}
+
 var score = 0
 @onready var score_label = $ScoreLabel
 

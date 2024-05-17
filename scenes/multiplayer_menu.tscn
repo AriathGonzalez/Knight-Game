@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://c32agjqjyest8"]
+
+[ext_resource type="Script" path="res://scripts/multiplayer/multiplayer_manager.gd" id="1_qv32b"]
+[ext_resource type="Texture2D" uid="uid://cunwoxkruesxy" path="res://assets/backgrounds/Knight Main Menu.png" id="2_ln1b7"]
+[ext_resource type="FontFile" uid="uid://dvnfk5ocb6x1c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_tl8vs"]
+[ext_resource type="FontFile" uid="uid://csc1p1qi3wpdi" path="res://assets/fonts/PixelOperator8.ttf" id="4_oqlll"]
+
+[node name="Multiplayer Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qv32b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ln1b7")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -52.0
+offset_right = 95.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_oqlll")
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Username"
+alignment = 1
+max_length = 10
+expand_to_text_length = true
+
+[node name="Host" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_tl8vs")
+theme_override_font_sizes/font_size = 16
+text = "Host Game"
+
+[node name="Join" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_tl8vs")
+theme_override_font_sizes/font_size = 16
+text = "Join Game"
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_tl8vs")
+theme_override_font_sizes/font_size = 16
+text = "Start Game"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_tl8vs")
+theme_override_font_sizes/font_size = 16
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
