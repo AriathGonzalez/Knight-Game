@@ -57,6 +57,7 @@ func send_player_info(username, id):
 @rpc("any_peer", "call_local")
 func start_game():
 	var game_scene = load("res://scenes/multiplayer_game.tscn").instantiate()
+	GameManager.game_scene = game_scene
 	get_tree().root.add_child(game_scene)
 	self.hide()
 	
@@ -70,6 +71,7 @@ func _on_join_pressed():
 	
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)	# Not needed, only if you want more optimization
 	multiplayer.set_multiplayer_peer(peer)		# Establish client
+	GameManager.multiplayer_mode_enabled = true
 
 func _on_host_pressed():
 	# Establish that this instance is a server
@@ -85,6 +87,7 @@ func _on_host_pressed():
 	# Set up multiplayer peer
 	multiplayer.set_multiplayer_peer(peer)
 	print("Waiting for players...")
+	GameManager.multiplayer_mode_enabled = true
 	send_player_info($MarginContainer/VBoxContainer/LineEdit.text, multiplayer.get_unique_id())
 
 func _on_start_pressed():

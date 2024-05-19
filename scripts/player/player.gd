@@ -21,3 +21,6 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	movement_state_machine.process_frame(delta)
+
+func update_label():
+	$EndLabel.text = "You have won!"

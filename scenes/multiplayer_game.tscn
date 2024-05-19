@@ -492,58 +492,58 @@ shape = SubResource("WorldBoundaryShape2D_fotxg")
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(321, 13)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin2" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(111, -67)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin3" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(-80, 14)
 
-[node name="Coin4" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin4" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(263, 14)
 
-[node name="Coin5" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin5" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(193, 47)
 
-[node name="Coin6" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin6" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(431, 12)
 
-[node name="Coin7" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin7" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(638, -20)
 
-[node name="Coin8" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin8" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(655, -21)
 
-[node name="Coin9" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin9" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(672, -22)
 
-[node name="Coin10" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin10" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(784, 13)
 
-[node name="Coin11" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin11" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(-241, 13)
 
-[node name="Coin12" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin12" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(931, -21)
 
-[node name="Coin13" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin13" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(1039, -21)
 
-[node name="Coin14" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin14" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(-432, 13)
 
-[node name="Coin15" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin15" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(-305, 46)
 
-[node name="Coin16" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin16" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(-384, 0)
 
-[node name="Coin17" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin17" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(-480, -17)
 
-[node name="Coin18" parent="Coins" instance=ExtResource("6_mpsk4")]
+[node name="Coin18" parent="Coins" groups=["Coins"] instance=ExtResource("6_mpsk4")]
 position = Vector2(-481, 1)
 
 [node name="Platforms" type="Node" parent="."]
@@ -643,3 +643,9 @@ position = Vector2(61, 25)
 
 [node name="0" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
 position = Vector2(16, 25)
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="EndTimer" to="." method="_load_multiplayer_menu"]

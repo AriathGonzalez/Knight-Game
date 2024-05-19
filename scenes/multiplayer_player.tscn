@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://poof4jiq2tsr"]
+[gd_scene load_steps=51 format=3 uid="uid://poof4jiq2tsr"]
 
 [ext_resource type="Script" path="res://scripts/multiplayer/multiplayer_controller.gd" id="1_fu5nb"]
 [ext_resource type="Texture2D" uid="uid://te85t6um1i6q" path="res://assets/sprites/knight.png" id="2_d2ni7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/player/states/jump.gd" id="6_wgkuf"]
 [ext_resource type="Script" path="res://scripts/player/states/fall.gd" id="7_d1b78"]
 [ext_resource type="Script" path="res://scripts/player/player_move_component.gd" id="8_nqmdh"]
+[ext_resource type="FontFile" uid="uid://dvnfk5ocb6x1c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="10_5er2w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fknk5"]
 atlas = ExtResource("2_d2ni7")
@@ -318,9 +319,6 @@ properties/2/replication_mode = 1
 properties/3/path = NodePath("AnimatedSprite2D:flip_v")
 properties/3/spawn = true
 properties/3/replication_mode = 1
-properties/4/path = NodePath("Camera2D:offset")
-properties/4/spawn = true
-properties/4/replication_mode = 1
 
 [node name="MultiplayerPlayer" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
@@ -390,3 +388,25 @@ position_smoothing_enabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_ol5cs")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="EndLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -65.0
+offset_right = 190.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_5er2w")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_respawn"]
