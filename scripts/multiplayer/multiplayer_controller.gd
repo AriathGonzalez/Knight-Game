@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	if not is_alive and is_on_floor():
 		_set_alive()
 					
-	if $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
+	if multiplayer and $MultiplayerSynchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
 		movement_state_machine.process_physics(delta)
 		camera_2d.enabled = true
 	else:

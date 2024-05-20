@@ -40,7 +40,6 @@ func get_winner():
 			max_score = score
 			player_winner_username = GameManager.players[player_id].username
 	set_winner_for_all.rpc(player_winner_username)
-	print("Winner: ", GameManager.player_winner_username)
 
 @rpc("any_peer", "call_local")
 func set_winner_for_all(player_winner_username):

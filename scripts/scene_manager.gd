@@ -27,9 +27,10 @@ func _ready():
 
 func _load_main_menu():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	print("load main menu?")
-
+		
 func _load_multiplayer_menu():
-	print("current scene: ", get_tree().get_current_scene())
-	GameManager.game_scene.queue_free()  # Remove the game scene
-	self.show()  # Show the multiplayer menu again
+	GameManager.multiplayer_mode_enabled = false
+	GameManager.players.clear()
+	GameManager.player_scenes = []
+	multiplayer.multiplayer_peer = null
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

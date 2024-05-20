@@ -644,6 +644,12 @@ position = Vector2(61, 25)
 [node name="0" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
 position = Vector2(16, 25)
 
+[node name="2" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(39, 26)
+
+[node name="3" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(28, 26)
+
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
